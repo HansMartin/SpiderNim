@@ -8,7 +8,6 @@ As Nim is only a wrapper around C, this approach can be adjusted to work for all
 As I don't prefer some weird `makefile` action, I created a small nim tool that does the job: SpiderNim
 
 
-
 ## Usage
 
 ![](img/help.png)
@@ -27,7 +26,7 @@ The Command to cross-compile that for Windows (Using Mingw):
 nim c -d:debug -d=mingw --app=console --cpu=amd64 test.nim
 ```
 
-This will create all the `.c` and `.o` files under the following path: `$HOME/.cache/nim/test_d/*`
+This will create all the `.c` and `.o` files under the following path: `$HOME/.cache/nim/test_d/*`.
 The name of the folder is `<filename>_[rd]` having `r` for release and `d` for debug builds.
 Under that path, Nim creates a JSON file for the build configuration. In this case: `test.json`
 
@@ -43,6 +42,7 @@ Use the following command for that:
 Per default, the spiderPIC executable from Code White is expected to be in $PATH, but can also be supplied with the `--spiderpic <binary>` option
 
 
-
+**Info:** When Nim recompiles a project that does not have any changes in the source-code, it will not recompile the `.o` files and the json configuration won't include the compilation items.
+To ensure that the spiderNim works after every compilation, supply the `-f` flag to force the full compilation when using the Nim compiler.
 
 
