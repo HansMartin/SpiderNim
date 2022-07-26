@@ -46,3 +46,11 @@ Per default, the spiderPIC executable from Code White is expected to be in $PATH
 To ensure that the spiderNim works after every compilation, supply the `-f` flag to force the full compilation when using the Nim compiler.
 
 
+## Build
+
+This tools does not require any 3rd party libaries and can be compiled under linux/windows/mac:
+
+```
+nim c spider.nim
+```
+
